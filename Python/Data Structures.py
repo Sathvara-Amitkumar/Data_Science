@@ -159,6 +159,6 @@ except Exception as e:
 else:
     print("No error occurred")
 finally:
-    print("I Dont care if error occurs or not!")    
+    print("I Don't care if error occurs or not!")    
 
 print("Program continues...")

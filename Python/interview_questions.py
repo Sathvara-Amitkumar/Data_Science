@@ -1,6 +1,6 @@
 # 1) Count the frequency of each character in a string
 
-s = "hello"
+s = "Hello, world!"
 freq = {}
 
 for ch in s:
@@ -28,7 +28,7 @@ print(nlarge)
 # or
 
 lst = [10, 4, 3, 50, 23, 90]
-n = 3
+n = 2  # 90, 50, 23, 10, 4, 3
 
 lst.sort(reverse=True)
 print(lst[:n])
@@ -56,7 +56,7 @@ print(words)
 print(words[1])
 
 # 2
-ls = " "
+ls = ""
 for i in range(1,4):
     ls += words[i]
 
