@@ -1,5 +1,6 @@
 import scrapy
 from pymongo import MongoClient
+# import MongoClient
 import datetime
 
 client  = MongoClient("mongodb+srv://amit:amit2005@cluster0.fbr8pud.mongodb.net")
@@ -50,11 +51,11 @@ class BooksSpider(scrapy.Spider):
             price = card.css(".price_color::text").get()
             rating = card.css(".star-rating::attr(class)").get()
             
-            # yield {
-            #     "img": img,
-            #     "title": title,
-            #     "price": price,
-            #     "rating": rating.split()[-1],
-            # }
+            yield {
+                "img": img,
+                "title": title,
+                "price": price,
+                "rating": rating.split()[-1],
+            }
             save_to_mongo(page, img, title, price, rating)
         pass
