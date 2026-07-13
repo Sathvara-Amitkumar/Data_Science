@@ -10,16 +10,21 @@ create table products(
 	last_update TIMESTAMP default now()
 )
 
-INSERT INTO products (name, sku_code, price, stock_quantity, category) values 
-('Wireless Mouse', 'avf6hg4h', 699.5, 50, 'Electronics'),
-('Water Bottle', 'njknk679', 210.00, 100, 'Fitness'),
-('Notebook', 'jk2d4g5g', 60.60, 70, 'Stationary'),
-('Pen Set', 'jlkj4g5g', 130.60, 60, 'Stationary'),
-('Laptop Stand', 'ls123ghq', 1399.60, 120, 'Accessories'),
-('USB-C Hub', 'mn54mnb3', 640.60, 100, 'Accessories');
+drop table products;
 
-INSERT INTO products (name, sku_code, price, stock_quantity, category) values 
-('Samsung S26 Ultra', 'jhg45as6', 189000.5, 50, 'Electronics');
+INSERT INTO products (name, sku_code, price , stock_quantity, is_available, category)
+VALUES
+('Wireless Mouse', 'WM123456', 699.99, 50, TRUE, 'Electronics'),
+('Bluetooth Speaker', 'BS234567', 1499.00, 30, TRUE, 'Electronics'),
+('Laptop Stand', 'LS345678', 799.50, 20, TRUE, 'Accessories'),
+('USB-C Hub', 'UC456789', 1299.99, 15, TRUE, 'Accessories'),
+('Notebook', 'NB567890', 99.99, 100, TRUE, 'Stationery'),
+('Pen Set', 'PS678901', 199.00, 200, TRUE, 'Stationery'),
+('Coffee Mug', 'CM789012', 299.00, 75, TRUE, 'Home & Kitchen'),
+('LED Desk Lamp', 'DL890123', 899.00, 40, TRUE, 'Home & Kitchen'),
+('Yoga Mat', 'YM901234', 499.00, 25, TRUE, 'Fitness'),
+('Water Bottle', 'WB012345', 349.00, 60, TRUE, 'Fitness');
+
 
 select * from products order by product_id asc;
 select *from products where category='Electronics';
@@ -33,9 +38,9 @@ select *from products where price between 400 and 1500;
 
 select *from products where category in ('Fitness', 'Stationary');
 
-select *from products where sku_code like '%g';
+select *from products where sku_code like '%5';
 select *from products where sku_code like '%123%';
-select *from products where sku_code like '_k%';
+select *from products where sku_code like '_M%';
 
 select count(*) from products; 
 select sum(price) as Total_price from products where category in ('Accessories', 'Stationary'); 
