@@ -12,6 +12,8 @@ create table products(
 
 drop table products;
 
+alter table products alter column category type varchar(50);
+
 INSERT INTO products (name, sku_code, price , stock_quantity, is_available, category)
 VALUES
 ('Wireless Mouse', 'WM123456', 699.99, 50, TRUE, 'Electronics'),
@@ -45,3 +47,43 @@ select *from products where sku_code like '_M%';
 select count(*) from products; 
 select sum(price) as Total_price from products where category in ('Accessories', 'Stationary'); 
 select round(avg(price), 2) from products; 
+
+
+
+-- Test - 2
+
+-- Q1. Display the name and price of the cheapest product in the entire table.
+select name,price from products where price = (select min(price) from products);
+
+-- Q2.Find the average price of products that belong to the 'Home & Kitchen' or 'Fitness' category.
+select avg(price) from products where category in ('Home & Kitchen', 'Fitness') group by category;
+
+-- Q3. Show product names and stock quantity where the product is available, stock is more than 50, and price is not equal to ₹299.
+select name, stock_quantity from products where is_available = true and stock_quantity > 50 and price != 299;
+
+-- Q4. Find the most expensive product in each category (name and price).
+select category, max(price) from products group by category;
+
+-- Q5. Show all unique categories in uppercase, sorted in descending order.
+select DISTINCT UPPER(category) as category_upper from products ORDER BY category_upper desc;
+
+
+
+-- String Function
+
+select UPPER(name) from products;
+select LOWER(name) from products;
+select name, length(sku_code) from products;
+
+select substring('Hello, This is Amitkumar', 13);
+select name, lower(substring(sku_code, 1,2)) from products;
+select right('This is Amitkumar', 9);
+select name, left(sku_code, 2) from products;
+
+select concat(name,' -> ', right(sku_code,2)) as product_with_code from products;
+select concat_ws(' : ', name,category, left(sku_code,2)) as product_category_code from products;
+
+select trim('    svbkbsn      ');
+select name, replace(sku_code, left(sku_code, 2), 'AK') from products;
+select name, substring(sku_code, 1,2) from products;
+select *From products;
