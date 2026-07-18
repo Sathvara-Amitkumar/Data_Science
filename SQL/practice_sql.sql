@@ -89,6 +89,7 @@ VALUES (4, 'English', 90), (4, 'Math', 89);
 INSERT INTO students (name) VALUES ('Amitkumar');
 
 -- JOINS
+
 -- Show each student's name along with their subject and marks.
 select s.name, m.subject, m.marks 
 from students s join marks m 
@@ -118,3 +119,5 @@ select s.name, round(avg(marks), 2) as AVG_marks
 from students s JOIN marks m
 ON s.st_id = m.st_id GROUP BY name ORDER BY AVG_marks DESC;
 
+-- Cross Join
+select s.name, m.subject, m.marks from students s CROSS JOIN marks m; 
