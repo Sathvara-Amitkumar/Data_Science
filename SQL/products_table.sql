@@ -87,3 +87,43 @@ select trim('    svbkbsn      ');
 select name, replace(sku_code, left(sku_code, 2), 'AK') from products;
 select name, substring(sku_code, 1,2) from products;
 select *From products;
+
+
+
+-- Case -> conditional expression
+SELECT name, price, 
+	CASE
+		WHEN price > 1000 THEN 'Expensive'
+		WHEN price BETWEEN 600 AND 1000 THEN 'Moderate'
+		ELSE 'Cheap'
+	END AS price_tag
+FROM products; 
+
+-- Above created is virtual data, now creating actual data 
+alter table products add column price_tag varchar(20) default 'Out of Stock';
+
+UPDATE products 
+	SET price_tag =
+		CASE
+			WHEN price > 1000 THEN 'Expensive'
+			WHEN price BETWEEN 600 AND 1000 THEN 'Moderate'
+			ELSE 'Cheap'
+		END;
+			
+
+-- is available column you have boolean true and false show case a new column to with in_stock and out of stock.
+select name, is_available,
+	case
+		when is_available then 'In Stock'
+		else 'Out of Stock'
+	end as availability_status
+from products;
+
+-- HIGHLIGHT STOCK STATUS
+select name, stock_quantity,
+	case
+		when stock_quantity > 100 then 'High Stock'
+		when stock_quantity between 30 and 100 then 'Medium Stock'
+		else 'Low Stock'
+	end as stock_level
+from products;
