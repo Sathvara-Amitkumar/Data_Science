@@ -27,7 +27,34 @@ SELECT o.order_id, o.customer_name, p.product_name, p.price
 FROM products p JOIN orders o ON p.product_id = o.product_id; 
 
 -- Q2. Show all products even if they were never ordered.
-SELECT o.order_id, p.product_name from products p 
-LEFT JOIN orders o ON p.product_id = o.product_id;
+SELECT p.product_name, o.order_id from products p 
+LEFT JOIN orders o ON o.product_id = p.product_id;
 
 -- Q3.Show orders for only ‘Electronics’ category.
+SELECT o.order_id, o.customer_name, p.product_name, p.category
+FROM products p JOIN orders o ON p.product_id = o.product_id where p.category = 'Electronics';
+
+-- Q4.List all orders sorted by product price (high to low).
+SELECT o.order_id, o.customer_name, p.product_name, p.price
+FROM orders o JOIN products p 
+ON p.product_id = o.product_id ORDER BY p.price DESC;
+
+-- Q5.Show number of orders placed for each product.
+SELECT p.product_name, COUNT(o.order_id) as total_orders
+FROM products p LEFT JOIN orders o ON p.product_id = o.product_id
+GROUP BY p.product_name;
+
+-- Q6.Show total revenue earned per product.
+SELECT p.product_name, SUM(p.price * o.quantity) as total_revenue
+FROM orders o JOIN products p ON p.product_id = o.product_id
+GROUP BY p.product_name ORDER BY total_revenue DESC;
+
+-- Q7.Show products where total order revenue > ₹2000.
+SELECT p.product_name, SUM(p.price * o.quantity) as total_revenue
+FROM orders o JOIN products p ON p.product_id = o.product_id
+GROUP BY p.product_name HAVING SUM(p.price * o.quantity) > 2000;
+
+-- Q8.Show unique customers who ordered ‘Fitness’ products.
+SELECT DISTINCT o.customer_name, p.product_name, p.category
+FROM orders o JOIN products p ON p.product_id = o.product_id
+WHERE category = 'Fitness';
