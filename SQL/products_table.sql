@@ -120,10 +120,13 @@ select name, is_available,
 from products;
 
 -- HIGHLIGHT STOCK STATUS
-select name, stock_quantity,
+alter table products add column stock_level varchar(20);
+
+update products set stock_level = 
 	case
 		when stock_quantity > 100 then 'High Stock'
 		when stock_quantity between 30 and 100 then 'Medium Stock'
 		else 'Low Stock'
-	end as stock_level
-from products;
+	end;
+	
+select *from products;
