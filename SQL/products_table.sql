@@ -130,3 +130,46 @@ update products set stock_level =
 	end;
 	
 select *from products;
+
+
+
+------------------------------- views ---------------------------
+CREATE view low_stock AS
+SELECT name, category, stock_quantity, price 
+FROM products
+WHERE stock_quantity < 30;
+
+select *From low_stock;
+
+drop view low_stock;
+
+
+---------------- Describing Table ------------------------
+SELECT column_name, data_type, character_maximum_length, is_nullable, column_default
+FROM information_schema.columns
+WHERE table_name = 'products'
+------------------------------------------------------------
+
+
+---------------------- Procudures ------------------------
+
+CREATE PROCEDURE add_products (
+	p_name VARCHAR,
+    p_sku CHAR(8),
+    p_price NUMERIC,
+    p_qty INT,
+    p_category TEXT
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN 
+	INSERT INTO products(name, sku_code, price, stock_quantity, category) 
+	VALUES (p_name, p_sku, p_price, p_qty, p_category);
+
+	RAISE NOTICE 'Product added succesfully!';
+END;
+$$
+
+call add_products('Computer Table', 'CT4568ST', 1300.00, 35, 'Furniture');
+
+select *from products;
