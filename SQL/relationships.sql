@@ -58,3 +58,56 @@ GROUP BY p.product_name HAVING SUM(p.price * o.quantity) > 2000;
 SELECT DISTINCT o.customer_name, p.product_name, p.category
 FROM orders o JOIN products p ON p.product_id = o.product_id
 WHERE category = 'Fitness';
+
+
+------------------------- Many to Many Relationship -------------------
+
+CREATE TABLE students (
+  student_id INT PRIMARY KEY,
+  student_name VARCHAR(100)
+);
+
+CREATE TABLE courses (
+  course_id INT PRIMARY KEY,
+  course_name VARCHAR(100)
+);
+
+CREATE TABLE student_courses (
+	student_id INT,
+	course_id INT,
+	PRIMARY KEY (student_id, course_id),
+	FOREIGN KEY (student_id) REFERENCES students(student_id),
+	FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+
+INSERT INTO students values 
+	(1, 'Amit'),
+	(2, 'Brijesh'),
+	(3, 'Jatin');
+	
+INSERT INTO courses values 
+	(101, 'Python'),
+	(102, 'Java'),
+	(103, 'Machine Learning');
+
+select *from  students;
+select *from  courses;
+
+INSERT INTO student_courses (student_id, course_id) VALUES
+(1, 101), (1, 102), (2, 101), (2, 103), (3, 102);
+
+select *from student_courses;
+
+-- Q1. Show student and course names
+select s.student_name, c.course_name 
+FROM student_courses sc 
+JOIN courses c ON sc.course_id = c.course_id
+JOIN students s ON sc.student_id = s.student_id;
+
+-- Q2. List all courses taken by 'Simran'
+select s.student_name, c.course_name 
+FROM student_courses sc 
+JOIN courses c ON sc.course_id = c.course_id
+JOIN students s ON sc.student_id = s.student_id
+WHERE s.student_name = 'Brijesh';
