@@ -126,10 +126,33 @@ select s.name, m.subject, m.marks from students s CROSS JOIN marks m;
 
 
 -------------------- Date Functions-------------------
-CREATE TABLE orders (
-    order_id INT PRIMARY KEY,
-    customer_name VARCHAR(50),
-    product VARCHAR(50),
-    amount DECIMAL(10,2),
-    order_date DATE
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary INT,
+    joining_date DATE
 );
+
+INSERT INTO employees
+(emp_id, emp_name, department, salary, joining_date)
+VALUES
+(101, 'Amit', 'IT', 45000, '2024-01-15'),
+(102, 'Rahul', 'HR', 38000, '2023-11-20'),
+(103, 'Priya', 'Finance', 52000, '2022-07-10'),
+(104, 'Neha', 'IT', 47000, '2025-03-01'),
+(105, 'Karan', 'Marketing', 40000, '2024-06-18'),
+(106, 'Sneha', 'Sales', 36000, '2025-01-05');
+
+SELECT *from employees;
+
+SELECT emp_name, CURRENT_DATE FROM employees;
+select emp_name, joining_date, joining_date + INTERVAL '2 years' AS after_30_days from employees;
+select emp_name, joining_date, joining_date + INTERVAL '1 year 2 months 10 days' AS after_30_days from employees;
+select emp_name, joining_date, joining_date - INTERVAL '2 months' AS after_30_days from employees;
+
+select * from employees where joining_date >= current_date - INTERVAL '2 years'; 
+select * from employees where joining_date <= current_date + INTERVAL '30 days'; 
+
+SELECT end_date - start_date AS difference_in_days FROM employees;
+SELECT AGE('2024-09-20', '2020-10-10') AS interval_difference;
