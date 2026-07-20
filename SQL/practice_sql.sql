@@ -121,3 +121,15 @@ ON s.st_id = m.st_id GROUP BY name ORDER BY AVG_marks DESC;
 
 -- Cross Join
 select s.name, m.subject, m.marks from students s CROSS JOIN marks m; 
+
+
+
+
+-------------------- Date Functions-------------------
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    product VARCHAR(50),
+    amount DECIMAL(10,2),
+    order_date DATE
+);
