@@ -2,3 +2,5 @@ Hello i am Sathvara Amitkumar and currently i pursuing B.Tech IT 7th SEM at Ganp
 WE BECOME WHAT WE THINK ABOUT
 
 Hello, Currently i tested git fetch change!
+
+now i tested git pull request!
