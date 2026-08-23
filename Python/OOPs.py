@@ -212,25 +212,25 @@
 # print(book2)
 
 
-class Animal:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+# class Animal:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
     
-    def __str__(self):
-        return f"Animal Name: {self.name}, Age: {self.age}"
+#     def __str__(self):
+#         return f"Animal Name: {self.name}, Age: {self.age}"
     
-    def __add__(self, other):
-        sum = 0
-        for i in other:
-            sum += i.age
+#     def __add__(self, other):
+#         sum = 0
+#         for i in other:
+#             sum += i.age
             
-        return self.age + sum
+#         return self.age + sum
 
-obj1 = Animal("Tiger", 15)
-obj2 = Animal("Lion", 35)
-obj3 = Animal("Fox", 30)
-print(obj1)
-print(obj2)
-print(obj3)
-print("Combined Age:", obj1 + (obj2, obj3))
+# obj1 = Animal("Tiger", 15)
+# obj2 = Animal("Lion", 35)
+# obj3 = Animal("Fox", 30)
+# print(obj1)
+# print(obj2)
+# print(obj3)
+# print("Combined Age:", obj1 + (obj2, obj3))

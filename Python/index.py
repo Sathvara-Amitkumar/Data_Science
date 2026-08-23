@@ -29,15 +29,23 @@
 #     print(str[i], end="")
 
 
-# str = "MADAMa"
+# str = "MADAM"
 # rev = ""
 # for i in range(len(str)-1, -1, -1):
 #     rev += str[i]
-    
+     
 # if str == rev:
 #     print(f"{str} is a palindrome.")
 # else:
 #     print(f"{str} is not a palindrome.")
+
+
+# str = "kanak"
+# res = ""
+# for i in str:
+#     res = i + res
+# print(res)
+
 
 
 # str = "P@#yn26at^&i5ve"
@@ -85,8 +93,105 @@
 # else:
 #     print(f"{a} is not a palindrome.")
     
+
+# Positive/Negative number count
+# ls = [-34, -45, 56, 75, -89, 90, -100, 23, -1, 0, 34, -67]
+# pos = []
+# neg = []
+# for i in ls:
+#     if i >= 0:
+#         pos.append(i)
+#     else:
+#         neg.append(i)
+
+# print(f"Positive: {sorted(pos)} \nNegative: {sorted(neg)}")
+
+
+
+# Second max number
+ls = [23, 34, 45, 56, 67, 78, 80, 90, 85, 85, 85, 90, 70]
+
+# max = ls[0]
+# sec_max = ls[0]
+# for i in ls:
+#     if i > max:
+#         sec_max = max
+#         max = i
+#     elif i > sec_max:
+#         sec_max = i
+
+# print("Second max number =", sec_max, "\nMax number =", max)
+
+
+# def second_largest(numbers):
+#     unique = list(set(numbers))
+#     print(unique)
+
+#     unique.sort()
+#     print(unique)
+
+#     print(unique[-2])
+
+# second_largest(ls)
+
+
     
-    
+# Check sorted list
+# ls = [1, 1, 2, 4, 5]
+
+# for i in range(len(ls) - 1):
+#     if ls[i] <= ls[i+1]:
+#         continue
+#     else:
+#         print("Not sorted")
+#         break
+# else:
+#     print("Sorted")
+
+
+# d = {}
+# for i in ls:
+#     if i in d:
+#         d[i] += 1
+#     else:
+#         d[i] = 1
+# print(d)
+
+
+# Find duplicates
+# b = [2,3,1,2,3]
+# seen = set()
+# duplicates = []
+# for i in b:
+#     if i in seen and i not in duplicates:
+#         duplicates.append(i)
+#     seen.add(i)
+# print("Duplicate elements:", duplicates)
+
+# print(ord('😎'))
+
+
+# a = {10:100, 20:200, 30:300, 40:400}
+# b = {40:500, 50:500, 60:600, 70:700}
+
+# for i in b:
+#     if i in a:
+#         a[i] += b[i]
+#     else:
+#         a[i] = b[i]
+# print(a)
+
+
+# Frequency of each character
+
+# result = {}
+# for num in ls:
+#     result[num] = result.get(num, 0) + 1
+
+# print(result)
+
+
+
 import random
 
 sys = random.randint(1, 10)

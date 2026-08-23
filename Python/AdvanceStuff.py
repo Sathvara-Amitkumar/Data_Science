@@ -50,27 +50,29 @@
 
 # addition(5, 10, 15, 20)
 
-
+# ls = [2,3,4,5]
+# res = map(lambda x: x*x, ls)
+# print(set(res))
 # ------------------------------------------------------------------------
 
 # Comprehensions Example
-a = 11
-print("Even" if a % 2 == 0 else "Odd")
+# a = 11
+# print("Even" if a % 2 == 0 else "Odd")
 
-evod = ["Even" if x % 2 == 0 else "Odd" for x in range(1,6)]
-print(evod)
+# evod = ["Even" if x % 2 == 0 else "Odd" for x in range(1,6)]
+# print(evod)
 
-dict_comp = {x : x*x for x in range(1,11)}
-print(dict_comp)
+# dict_comp = {x : x*x for x in range(1,11)}
+# print(dict_comp)
 
-set_comp = {x for x in range(1,11)}
-print(set_comp)
+# set_comp = {x for x in range(1,11)}
+# print(set_comp)
 
-tuple_comp = tuple(x*x for x in range(1,11))
-print(tuple_comp)
+# tuple_comp = tuple(x*x for x in range(1,11))
+# print(tuple_comp)
 
 
-# Map and Filter Example
+# # Map and Filter Example
 numbers = [1, 2, 3, 4, 5]
 square = map(lambda x : x*x, numbers)
 print(list(square))
