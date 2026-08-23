@@ -1,4 +1,4 @@
 Hello i am Sathvara Amitkumar and currently i pursuing B.Tech IT 7th SEM at Ganpat University.
 WE BECOME WHAT WE THINK ABOUT
 
-HEllo Currently i tested git fetch & git pull 
+HEllo Currently i tested git fetch
