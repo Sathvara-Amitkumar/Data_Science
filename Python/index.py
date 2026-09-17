@@ -521,6 +521,44 @@ def plusOne(digits: list[int]):
 
     return [1] + digits
 
-print(plusOne([1, 2, 3]))
-print(plusOne([3, 2, 9]))
-print(plusOne([9, 9]))
+# print(plusOne([1, 2, 3]))
+# print(plusOne([3, 2, 9]))
+# print(plusOne([9, 9]))
+
+
+
+# 67. Add Binary
+# def addBinary(a: str, b: str):
+#     return bin(int(a, 2) + int(b, 2))[2:]
+
+# a = "1010"
+# b = "1011"
+# print(addBinary(a, b))
+
+
+# 9. Sqrt(x)
+# def sqrt(x):
+#     left = 0
+#     right = x
+#     ans = 0
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if mid * mid <= x:
+#             ans = mid
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return ans
+# print(sqrt(8))
+
+
+# Newton's Approach
+# def mySqrt(x):
+#     if x == 0:
+#         return 0
+#     guess = x
+#     while guess * guess > x:
+#         guess = (guess + x // guess) // 2
+#     return guess
+
+# print(mySqrt(8))
