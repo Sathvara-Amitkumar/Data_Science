@@ -109,7 +109,7 @@
 
 
 # Second max number
-ls = [23, 34, 45, 56, 67, 78, 80, 90, 85, 85, 85, 90, 70]
+# ls = [23, 34, 45, 56, 67, 78, 80, 90, 85, 85, 85, 90, 70]
 
 # max = ls[0]
 # sec_max = ls[0]
@@ -192,32 +192,287 @@ ls = [23, 34, 45, 56, 67, 78, 80, 90, 85, 85, 85, 90, 70]
 
 
 
-import random
+# import random
 
-sys = random.randint(1, 10)
+# sys = random.randint(1, 10)
 
-tries = 0
-while True:
-    user = int(input("Enter a number between 1 to 10: "))   
+# tries = 0
+# while True:
+#     user = int(input("Enter a number between 1 to 10: "))   
     
-    if user < 1 or user > 10:
-        print("Invalid input. Please try again.")
-        continue
+#     if user < 1 or user > 10:
+#         print("Invalid input. Please try again.")
+#         continue
     
-    if user == sys:
-        tries += 1
-        print(f"Congratulations! You guessed the number in {tries} tries.")
-        break
+#     if user == sys:
+#         tries += 1
+#         print(f"Congratulations! You guessed the number in {tries} tries.")
+#         break
     
-    elif user < sys:
-        tries += 1
-        print("Oops! Too low! Try again.")
+#     elif user < sys:
+#         tries += 1
+#         print("Oops! Too low! Try again.")
     
-    elif user > sys:
-        tries += 1
-        print("Oops! Too high! Try again.")
+#     elif user > sys:
+#         tries += 1
+#         print("Oops! Too high! Try again.")
     
+#     else:
+#         tries += 1
+#         break
+    
+
+
+# DSA New Questions----------------------------------------------------------------------------
+# 
+# 1. Find Pairs With Given Sum
+# ls = [2,3,4,5,6,7]
+# key = 7
+
+# for i in range(len(ls)):
+#     for j in range(i+1, len(ls)):
+#         if ls[i] + ls[j] == key:
+#             print(ls[i], ls[j])
+
+
+# arr = [2, 4, 3, 5, 7, 8, 1]
+# target = 9
+
+# seen = set()
+
+# for num in arr:
+#     complement = target - num
+
+#     if complement in seen:
+#         print(complement, num)
+
+#     seen.add(num)
+
+
+# seen = {}
+# for i, num in enumerate(arr):
+#     complement = target - num
+
+#     if complement in seen:
+#         return [seen[complement], i]
+    
+#     seen[num] = i
+
+
+# Prefix
+
+strings = ["flower", "flow", "flight"]
+
+prefix = ""
+
+for chars in zip(*strings):
+    if len(set(chars)) == 1:
+        prefix += chars[0]
     else:
-        tries += 1
         break
-    
+print(prefix)
+
+
+# str = "madam"
+# print("Palindrome") if str == str[::-1] else print("Not palindrome")
+
+
+# dict1 = {"a": 10, "b": 20}
+# dict2 = {"c": 30, "d": 40}
+# result = {}
+# for key in dict1:
+#     result[key] = dict1[key]
+# for key in dict2:
+#     result[key] = dict2[key]
+# print(result)
+
+
+# from collections import Counter
+# arr = [1, 2, 2, 3, 1, 2, 4, 3]
+# frequency = Counter(arr)
+# print(dict(frequency))
+
+
+# dict1 = {"a": 10, "b": 20, "c": 30}
+# dict2 = {"b": 5, "c": 10, "d": 15}
+# result = Counter(dict1) + Counter(dict2)
+# print(dict(result))
+
+
+# sentence = "python is easy and python is powerful"
+# words = sentence.split()
+# frequency = Counter(words)
+# print(dict(frequency))
+
+
+# def fun(*args, **kwargs):
+#     print("Args : ", args)
+#     print("Kwargs : ", kwargs)
+
+# fun(5,6,4,6,8,9,44, name="Amit", age=21, salary=24000)
+
+
+
+# ls = [1,1,2,3,4,5,6,3,3,1,2]
+# res = list(dict.fromkeys(ls))
+# res2 = list(set(ls))
+# print(res)
+# print(res2)
+
+
+# def typeof(func):
+#     def wrapper(n):
+#         print(type(n))
+#         func(n)
+#         print(type(res))
+#         # return res
+#     return wrapper
+
+# @typeof
+# def check_type(n):
+#     return int(n[:])
+
+# n = "123"
+# check_type(n)
+
+
+arr = [1, 2, 3, 2, 4, 1, 5, 3,2,3]
+seen = set()
+duplicates = set()
+for item in arr:
+    if item in seen:
+        duplicates.add(item)
+    else:
+        seen.add(item)
+
+print(list(duplicates))
+print(list(seen))
+
+# arr = [1, 2, 3, 4, 5]
+
+# k = 6
+# k = k % len(arr)
+# print(arr[-k:])
+# print(arr[:-k])
+# arr = arr[-k:] + arr[:-k]
+# print(arr)
+
+
+
+# arr = [(1, 5), (2, 3), (3, 8), (4, 1)]
+# n = len(arr)
+# for i in range(n):
+#     for j in range(0, n - i - 1):
+#         if arr[j][1] > arr[j + 1][1]:
+#             arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+# print(arr)
+
+
+# arr.sort(key=lambda x: x[1])
+# print(arr[::-1])
+
+
+# n = 23
+# count = 0
+# for i in range(2, n):
+#     if n % i == 0:
+#         count += 1
+
+# if count == 2:
+#     print(f"{n} is Prime Number")
+# else:
+#     print(f"{n} is not Prime Number")
+
+
+# matrix = [
+# [10, 25, 5],
+# [40, 15, 30],
+# [8, 50, 20]
+# ]
+# maximum = matrix[0][0]
+# for i in range(len(matrix)):
+#     for j in range(len(matrix[i])):
+#         if matrix[i][j] > maximum:
+#             maximum = matrix[i][j]
+
+# print(maximum)
+
+
+# Armstrong Number
+# n = 153
+# digits = str(n)
+# power = len(digits)
+# total = 0
+# for i in digits:
+#     total += int(i) ** power
+
+# print(total)
+# if n == total:
+#     print("Armstrong")
+# else:
+#     print("Not Armstrong")
+
+
+# Integer to Roman number converter
+s = 'CLXXIX'
+roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+total = 0
+for index, symbol in enumerate(s):
+    value = roman[symbol]
+    if index + 1 < len(s) and value < roman[s[index + 1]]:
+        total -= value
+    else:
+        total += value
+
+print(total)
+
+
+# valid parenthesis
+# def isValid(s: str) -> bool:
+#         stack = []
+#         for i in range(len(s)):
+#             if s[i] in "([{":
+#                 stack.append(s[i])
+#             else:
+#                 if len(stack) == 0:
+#                     return False
+
+#                 if ((stack[-1] == '(' and s[i] == ')') or
+#                     (stack[-1] == '{' and s[i] == '}') or
+#                     (stack[-1] == '[' and s[i] == ']')):
+#                     stack.pop()
+#                 else:
+#                     return False
+
+#         return len(stack) == 0
+
+# print(isValid("({[]}[])"))
+
+# ls = [1,2,3,3,4,4,5]
+# seen = set(ls)
+# print(len(seen))
+
+
+
+# Serach insert position
+def searchInsert(nums: list[int], target: int) -> int:
+    left, right = 0, len(nums)
+
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid
+
+    return left
+
+    # for i in range(len(nums)):
+    #     if target <= nums[i]:
+    #         return i
+    # return len(nums) 
+
+
+print(searchInsert([2, 3, 5, 6, 8, 9], 4))
