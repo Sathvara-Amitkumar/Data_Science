@@ -456,18 +456,19 @@ print(total)
 
 
 
-# Serach insert position
-def searchInsert(nums: list[int], target: int) -> int:
-    left, right = 0, len(nums)
+# 35. Serach insert position
 
-    while left < right:
-        mid = (left + right) // 2
-        if nums[mid] < target:
-            left = mid + 1
-        else:
-            right = mid
+# def searchInsert(nums: list[int], target: int) -> int:
+#     left, right = 0, len(nums)
 
-    return left
+#     while left < right:
+#         mid = (left + right) // 2
+#         if nums[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid
+
+#     return left
 
     # for i in range(len(nums)):
     #     if target <= nums[i]:
@@ -475,4 +476,51 @@ def searchInsert(nums: list[int], target: int) -> int:
     # return len(nums) 
 
 
-print(searchInsert([2, 3, 5, 6, 8, 9], 4))
+# print(searchInsert([2, 3, 5, 6, 8, 9], 4))
+
+
+# 58. Length of Last Word
+
+# With function
+# str = " Hello word"
+# print(len(str.strip().split()[-1]))
+
+# without function
+# def lengthOfLastWord(str):
+#     last = len(str) - 1
+#     length = 0
+
+#     while str[last] == ' ':
+#         last -= 1
+#     while last >= 0 and str[last] != ' ':
+#         length += 1
+#         last -= 1
+ 
+#     return length
+
+# print(lengthOfLastWord("   fly me   to   the moon  "))
+
+
+# 66. Plus one
+def plusOne(digits: list[int]):
+    # for i in range(len(digits) - 1, -1, -1):
+    #     if digits[i] < 9:
+    #         digits[i] += 1
+    #         return digits        
+    #     digits[i] = 0
+    # return [1] + [0] * len(digits)
+
+    # Notheer solution
+    i = len(digits) - 1
+    while i >= 0:
+        if digits[i] < 9:
+            digits[i] += 1
+            return digits
+        digits[i] = 0
+        i -= 1
+
+    return [1] + digits
+
+print(plusOne([1, 2, 3]))
+print(plusOne([3, 2, 9]))
+print(plusOne([9, 9]))
