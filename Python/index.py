@@ -562,3 +562,19 @@ def plusOne(digits: list[int]):
 #     return guess
 
 # print(mySqrt(8))
+
+stars = "***************234*****************"
+count = 0
+for i in stars:
+    if i == '*':
+        count += 1
+print(count)
+
+
+# 258. Add digits
+def addDigits(num):
+    if num == 0:
+        return 0
+    return 1 + (num - 1) % 9
+
+print(addDigits(404))
