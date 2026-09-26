@@ -591,30 +591,66 @@ def plusOne(digits: list[int]):
 
 
 # 290. Word Pattern
-def wordPattern(pattern, str):
-    words = str.split()
+# def wordPattern(pattern, str):
+#     words = str.split()
 
-    char_word = {}
-    word_char = {}
+#     char_word = {}
+#     word_char = {}
 
-    if len(pattern) != len(words):
-        return False
+#     if len(pattern) != len(words):
+#         return False
     
-    for char, word in zip(pattern, words):
-        if char in char_word:
-            if char_word[char] != word:
-                return False
+#     for char, word in zip(pattern, words):
+#         if char in char_word:
+#             if char_word[char] != word:
+#                 return False
 
-        if word in word_char:
-            if word_char[word] != char:
-                return False
+#         if word in word_char:
+#             if word_char[word] != char:
+#                 return False
 
-        char_word[char] = word
-        word_char[word] = char
+#         char_word[char] = word
+#         word_char[word] = char
 
-    return True
+#     return True
 
 
-pattern = "abba"
-str = "dog cat dog dog"
-print(wordPattern(pattern, str))
+# pattern = "abba"
+# str = "dog cat dog dog"
+# print(wordPattern(pattern, str))
+
+
+# 326. Powr of 3
+# n = -1
+# if n % 3 == 0:
+#     print(True)
+# else:
+#     print(False)
+
+
+
+# 345. Reverse Vowels of a String
+def reverseVowel(str):
+    vowel = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+
+    left = 0
+    right = len(str) - 1
+
+    str = list(str)
+
+    while left < right:
+        if str[left] not in vowel:
+            left += 1
+            continue
+
+        if str[right] not in vowel:
+            right -= 1
+            continue
+
+        str[left], str[right] = str[right], str[left]
+        left += 1
+        right -= 1
+
+    return ''.join(str)
+
+print(reverseVowel("IceCreAm"))
