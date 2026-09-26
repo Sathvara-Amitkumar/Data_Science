@@ -582,10 +582,39 @@ def plusOne(digits: list[int]):
 
 # 268. Missing Number
 # nums = [9,6,4,2,3,5,7,0,1]
-nums = [3,0,1]
-# nums = [1]
-n = len(nums)
+# nums = [3,0,1]
+# n = len(nums)
 
-expected = n * (n + 1) // 2
-actual = sum(nums)
-print(expected - actual)    
+# expected = n * (n + 1) // 2
+# actual = sum(nums)
+# print(expected - actual)    
+
+
+# 290. Word Pattern
+def wordPattern(pattern, str):
+    words = str.split()
+
+    char_word = {}
+    word_char = {}
+
+    if len(pattern) != len(words):
+        return False
+    
+    for char, word in zip(pattern, words):
+        if char in char_word:
+            if char_word[char] != word:
+                return False
+
+        if word in word_char:
+            if word_char[word] != char:
+                return False
+
+        char_word[char] = word
+        word_char[word] = char
+
+    return True
+
+
+pattern = "abba"
+str = "dog cat dog dog"
+print(wordPattern(pattern, str))
