@@ -261,16 +261,16 @@
 
 # Prefix
 
-strings = ["flower", "flow", "flight"]
+# strings = ["flower", "flow", "flight"]
 
-prefix = ""
+# prefix = ""
 
-for chars in zip(*strings):
-    if len(set(chars)) == 1:
-        prefix += chars[0]
-    else:
-        break
-print(prefix)
+# for chars in zip(*strings):
+#     if len(set(chars)) == 1:
+#         prefix += chars[0]
+#     else:
+#         break
+# print(prefix)
 
 
 # str = "madam"
@@ -336,17 +336,17 @@ print(prefix)
 # check_type(n)
 
 
-arr = [1, 2, 3, 2, 4, 1, 5, 3,2,3]
-seen = set()
-duplicates = set()
-for item in arr:
-    if item in seen:
-        duplicates.add(item)
-    else:
-        seen.add(item)
+# arr = [1, 2, 3, 2, 4, 1, 5, 3,2,3]
+# seen = set()
+# duplicates = set()
+# for item in arr:
+#     if item in seen:
+#         duplicates.add(item)
+#     else:
+#         seen.add(item)
 
-print(list(duplicates))
-print(list(seen))
+# print(list(duplicates))
+# print(list(seen))
 
 # arr = [1, 2, 3, 4, 5]
 
@@ -415,18 +415,18 @@ print(list(seen))
 
 
 # Integer to Roman number converter
-s = 'CLXXIX'
-roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+# s = 'CLXXIX'
+# roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 
-total = 0
-for index, symbol in enumerate(s):
-    value = roman[symbol]
-    if index + 1 < len(s) and value < roman[s[index + 1]]:
-        total -= value
-    else:
-        total += value
+# total = 0
+# for index, symbol in enumerate(s):
+#     value = roman[symbol]
+#     if index + 1 < len(s) and value < roman[s[index + 1]]:
+#         total -= value
+#     else:
+#         total += value
 
-print(total)
+# print(total)
 
 
 # valid parenthesis
@@ -563,18 +563,29 @@ def plusOne(digits: list[int]):
 
 # print(mySqrt(8))
 
-stars = "***************234*****************"
-count = 0
-for i in stars:
-    if i == '*':
-        count += 1
-print(count)
+# stars = "***************234*****************"
+# count = 0
+# for i in stars:
+#     if i == '*':
+#         count += 1
+# print(count)
 
 
 # 258. Add digits
-def addDigits(num):
-    if num == 0:
-        return 0
-    return 1 + (num - 1) % 9
+# def addDigits(num):
+#     if num == 0:
+#         return 0
+#     return 1 + (num - 1) % 9
 
-print(addDigits(404))
+# print(addDigits(404))
+
+
+# 268. Missing Number
+# nums = [9,6,4,2,3,5,7,0,1]
+nums = [3,0,1]
+# nums = [1]
+n = len(nums)
+
+expected = n * (n + 1) // 2
+actual = sum(nums)
+print(expected - actual)    
