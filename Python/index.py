@@ -630,27 +630,54 @@ def plusOne(digits: list[int]):
 
 
 # 345. Reverse Vowels of a String
-def reverseVowel(str):
-    vowel = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+# def reverseVowel(str):
+#     vowel = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
 
-    left = 0
-    right = len(str) - 1
+#     left = 0
+#     right = len(str) - 1
 
-    str = list(str)
+#     str = list(str)
 
-    while left < right:
-        if str[left] not in vowel:
-            left += 1
-            continue
+#     while left < right:
+#         if str[left] not in vowel:
+#             left += 1
+#             continue
 
-        if str[right] not in vowel:
-            right -= 1
-            continue
+#         if str[right] not in vowel:
+#             right -= 1
+#             continue
 
-        str[left], str[right] = str[right], str[left]
-        left += 1
-        right -= 1
+#         str[left], str[right] = str[right], str[left]
+#         left += 1
+#         right -= 1
+#     return ''.join(str)
 
-    return ''.join(str)
+# print(reverseVowel("IceCreAm"))
 
-print(reverseVowel("IceCreAm"))
+
+
+# 349. Intersection of Two Arrays
+# def intersection(nums1, nums2):
+#     seen = set()
+
+#     for i in nums2:
+#         if i in nums1:
+#             seen.add(i)
+            
+#     return list(seen)
+
+# 350. Intersection of Two Arrays II
+def intersection(nums1, nums2):
+    dict = {}
+    count = 0
+    for i in nums2:
+        if i in nums1:
+            dict[i] = count + 1
+
+    return dict
+
+# nums1 = [4,9,5,9]
+# nums2 = [9,4,9,8,4]
+nums1 = [-10,-10,-10,-5,-5,0,0,0,3,7,7,12]
+nums2 = [7,7,7,7,12,12,3,3,0,0,0,0,-5,-5,-5,-10,20]
+print(intersection(nums1, nums2))
